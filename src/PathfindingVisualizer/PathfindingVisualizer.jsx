@@ -13,6 +13,9 @@ const listOfColors = [["rgba(0, 217, 159, 0.75)","rgb(0, 255, 128)","rgb(149, 14
   ["rgb(0, 33, 48)","rgb(255, 255, 255)","rgb(0, 0, 0)","rgb(235, 235, 235)"]
 ]
 
+const dijkstrasDescription = "Dijkstra's algorithm finds the shortest between two nodes in a graph by visiting each node in a BFS manner. The algorithm adds neighbouring nodes to a pririty queue and greedily visits nodes that are shortest to the starting node until it finds the destination node"
+const aStarDescription = "A* (pronounced \"A-star\") is an informed search algorithm that finds the shortest path between two nodes in a graph. This algorithm greedily visits neighbouring nodes that have a shorter distance to the destination node. It is widely considered to be more efficient than Dijkstra's."
+
 export default class PathfindingVisualizer extends Component {
   constructor() {
     super();
@@ -119,10 +122,10 @@ export default class PathfindingVisualizer extends Component {
     document.getElementById("select-"+algo).className = "selected-algo";
     if (algo == "dijkstra") {
       document.getElementById("algorithm-description-header").innerHTML = "Dijkstra's Algorithm";
-      document.getElementById("algorithm-description-paragraph").innerHTML = "lmaoooooo lorem shyt";
+      document.getElementById("algorithm-description-paragraph").innerHTML = dijkstrasDescription;
     } else if (algo == "aStar") {
       document.getElementById("algorithm-description-header").innerHTML = "A* Search";
-      document.getElementById("algorithm-description-paragraph").innerHTML = "ASTAR FFS AAAAA lorem shyt";
+      document.getElementById("algorithm-description-paragraph").innerHTML = aStarDescription;
     }
   }
 
@@ -342,22 +345,22 @@ export default class PathfindingVisualizer extends Component {
     return (
       <div onMouseUp={() => this.handleMouseUp()}>
         <div id="top">
-          <div>
+          <div class="algorithm-selector-container">
             <div class="algorithm-selector">
               <button id="select-dijkstra" class="selected-algo" onClick={() => this.handleChangeAlgo("dijkstra")}>Dijkstra's Algorithm</button>
               <button id="select-aStar" class="algorithm-selector-button" onClick={() => this.handleChangeAlgo("aStar")}>A* Search</button>
             </div>  
           </div>
           <div id="algorithm-description-container">
-            <h1 id="algorithm-description-header">Dijkstra's Algorithm</h1>
-            <p id="algorithm-description-paragraph">lmaoooooo lorem shyt</p>
+            <h2 id="algorithm-description-header">Dijkstra's Algorithm</h2>
+            <p id="algorithm-description-paragraph">{dijkstrasDescription}</p>
           </div>
           <button id="visualize-button" onClick={() => this.visualizeAlgorithm()}>
             VISUALIZE
           </button>
           <label class="switch">
-            <div id="select-weights" class="invisible"><h2 class="checkbox-title">Draw Weights</h2><div id="weight-picture"></div></div>
-            <div id="select-walls" class="checkbox-description"><h2 class="checkbox-title">Draw Walls</h2><div id="wall-picture"></div></div>
+            <div id="select-weights" class="invisible"></div>
+            <div id="select-walls" class="checkbox-description"></div>
             <input type="checkbox" id="draw-toggle" onClick={() => this.handleDrawToggle()}/>
             <span class="slider"></span>
           </label>
