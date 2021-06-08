@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
 import {aStar} from '../algorithms/aStar';
-
+import logo from './logo.png';
 import './PathfindingVisualizer.css';
 
 const listOfColors = [["rgba(0, 217, 159, 0.75)","rgb(0, 255, 128)","rgb(149, 147, 255)","rgb(0, 221, 255)"],
@@ -365,6 +365,7 @@ export default class PathfindingVisualizer extends Component {
             <span class="slider"></span>
           </label>
           <input id ="speedSlider" type="range" min="7" max="20" onInput={() => this.handleChangeSpeed()}></input>
+          <img id="logo" src={logo} alt="Logo" />      
         </div>
         <div className="grid">
           {grid.map((row, rowIdx) => {
