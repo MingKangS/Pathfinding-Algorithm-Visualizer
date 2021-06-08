@@ -1,0 +1,195 @@
+.grid {
+  display: table;
+  outline: 1px solid rgb(235, 235, 235);
+  border: 1px solid rgb(235, 235, 235);
+  margin: 1px auto;
+  align-content: center;
+}
+
+.row {
+  display: flex;
+}  
+
+#visualize-button {
+  margin: auto;
+  background-color: #eee;
+  color: black;
+  padding: 10px 8px;
+  text-align: center;
+  text-decoration: solid;
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 25px;
+}
+
+#visualize-button:hover {
+  animation-name: buttonHover;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes buttonHover {
+  100% {
+    background-color: rgb(43, 255, 0);
+  }
+}
+
+#top {
+  width: 100%;
+  height: 168px;
+  background-color:  rgb(0, 33, 48);
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  height: 90px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 70px;
+  width: 70px;
+  left: 10px;
+  bottom: 10px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(90px);
+  -ms-transform: translateX(90px);
+  transform: translateX(90px);
+}
+
+.checkmark {
+  opacity: 0;
+  position: relative;
+  right: 25px;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-description {
+  animation-name: toggleCheckbox;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes toggleCheckbox {
+  100% {
+    opacity: 1;
+  }
+}
+
+.checkbox-title {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+#weight-picture {
+  height: 35px;
+  width: 35px;
+  background-color:#ccc;
+  background-image: url(weight.svg);
+}
+
+#wall-picture {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(0, 33, 48);
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.algorithm-selector {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+}
+
+.algorithm-selector-button {
+  height: 30px;
+  width: 180px;
+  font-size: medium;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: #ccc;
+  border: 2px solid #ccc;
+}
+
+.algorithm-selector-button:hover {
+  animation-name: hoverButton;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes hoverButton {
+  100% {
+    background-color: #2196F3;
+  }
+}
+
+.selected-algo {
+  height: 30px;
+  width: 180px;
+  font-size: medium;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ccc;
+  text-align: center;
+  background-color: rgb(0, 33, 48);
+  border: 2px solid #000;
+}
+
+
